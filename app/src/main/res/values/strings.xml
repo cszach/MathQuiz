@@ -18,4 +18,6 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="app_emoji">🔢</string>
     <string name="new_game_text">New game</string>
+    <string name="settings_button_text">Settings</string>
+    <string name="stats_button_text">Statistics</string>
 </resources>
