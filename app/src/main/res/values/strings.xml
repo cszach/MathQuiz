@@ -20,4 +20,13 @@
     <string name="new_game_text">New game</string>
     <string name="settings_button_text">Settings</string>
     <string name="stats_button_text">Statistics</string>
+    <string name="text_settings">Settings</string>
+    <string name="text_sound">Sound</string>
+    <string name="text_5_minutes">5 minutes</string>
+    <string name="text_2_minutes">2 minutes</string>
+    <string name="text_1_minute">1 minute</string>
+    <string name="text_30_seconds">30 seconds</string>
+    <string name="text_10_seconds">10 seconds</string>
+    <string name="text_time_limit">Time limit</string>
+    <string name="settings_emoji">⚙️</string>
 </resources>
