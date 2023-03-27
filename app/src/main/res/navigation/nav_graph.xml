@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_gameFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <argument
+            android:name="configuration"
+            app:argType="com.dnguy38.mathquiz.models.Configuration" />
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
