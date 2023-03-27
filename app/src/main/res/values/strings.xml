@@ -29,4 +29,9 @@
     <string name="text_10_seconds">10 seconds</string>
     <string name="text_time_limit">Time limit</string>
     <string name="settings_emoji">⚙️</string>
+    <string name="stats_fragment_emoji_textView">📊</string>
+    <string name="text_statistics">Statistics</string>
+    <string name="text_correct_answers">Correct answers</string>
+    <string name="text_time_spent">Time spent doing math</string>
+    <string name="text_num_of_solved">Calculations attempted</string>
 </resources>
