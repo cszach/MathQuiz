@@ -18,7 +18,7 @@ class MainViewModel : ViewModel() {
         _configurationList.value = Configuration.values()
     }
 
-    fun generateProblemList(operation: Operation, operandLimit: Int) {
-        _problemList.value = MathQuiz.newProblemSet(5, operation, operandLimit)
+    fun generateProblemList(numberOfProblems: Int, operation: Operation, operandLimit: Int) {
+        _problemList.value = MathQuiz.newProblemSet(numberOfProblems, operation, operandLimit)
     }
 }

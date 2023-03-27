@@ -42,12 +42,21 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/result_textView"
+            android:id="@+id/answer_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="2"
             android:inputType="number"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/correct_emoji_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:alpha="0"
+            android:text="@string/correct_emoji"
             android:textAlignment="center" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

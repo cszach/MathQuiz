@@ -37,4 +37,5 @@
     <string name="game_emoji">📚</string>
     <string name="game_text">Quiz time!</string>
     <string name="text_equal_sign">=</string>
+    <string name="correct_emoji">✅</string>
 </resources>
