@@ -133,13 +133,14 @@ class GameFragment : Fragment() {
                     val answerString = answerEditText.text.toString()
 
                     if (answerString.isNotEmpty() && answerString.toInt() != problem.result) {
-                        val shakeRight = ObjectAnimator.ofFloat(answerEditText, "rotation", 0f, 5f)
-                        val shakeLeft = ObjectAnimator.ofFloat(answerEditText, "rotation", 5f, -5f)
-                        val shakeToOriginal = ObjectAnimator.ofFloat(answerEditText, "rotation", -5f, 0f)
-
                         val shake = AnimatorSet()
 
-                        shake.playSequentially(shakeRight, shakeLeft, shakeToOriginal)
+                        shake.playSequentially(
+                            ObjectAnimator.ofFloat(answerEditText, "rotation", 0f, 5f),
+                            ObjectAnimator.ofFloat(answerEditText, "rotation", 5f, -5f),
+                            ObjectAnimator.ofFloat(answerEditText, "rotation", -5f, 0f)
+                        )
+
                         shake.duration = SHAKE_ANIM_DURATION
                         shake.start()
                     }
@@ -171,10 +172,52 @@ class GameFragment : Fragment() {
     }
 
     private fun onGameWin() {
+        timer.cancel()
+
+        // Win animation
+
+        val zoomIn = AnimatorSet()
+        zoomIn.playTogether(
+            ObjectAnimator.ofFloat(recycler, "scaleX", 1f, 1.1f),
+            ObjectAnimator.ofFloat(recycler, "scaleY", 1f, 1.1f)
+        )
+
+        val shake = AnimatorSet()
+        shake.playSequentially(
+            ObjectAnimator.ofFloat(recycler, "rotation", 0f, 5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", 5f, -5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", -5f, 5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", 5f, -5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", -5f, 5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", 5f, -5f),
+            ObjectAnimator.ofFloat(recycler, "rotation", -5f, 0f)
+        )
+
+        val zoomOut = AnimatorSet()
+        zoomOut.playTogether(
+            ObjectAnimator.ofFloat(recycler, "scaleX", 1.1f, 1f),
+            ObjectAnimator.ofFloat(recycler, "scaleY", 1.1f, 1f)
+        )
+
+        val winAnimator = AnimatorSet()
+
+        winAnimator.playSequentially(zoomIn, shake, zoomOut)
+        winAnimator.duration = SHAKE_ANIM_DURATION
+
+        winAnimator.start()
         onGameEnd()
     }
 
     private fun onGameEnd() {
-        newGameButton.visibility = View.VISIBLE
+        val fadeIn = ValueAnimator.ofFloat(0f, 1f)
+
+        fadeIn.addUpdateListener {
+            newGameButton.alpha = it.animatedValue as Float
+        }
+
+        fadeIn.interpolator = LinearInterpolator()
+        fadeIn.duration = CORRECT_EMOJI_ALPHA_ANIM_DURATION
+
+        fadeIn.start()
     }
 }
