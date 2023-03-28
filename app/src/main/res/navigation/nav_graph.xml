@@ -12,13 +12,19 @@
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_configurationFragment"
-            app:destination="@id/configurationFragment" />
+            app:destination="@id/configurationFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_welcomeFragment_to_statisticsFragment"
-            app:destination="@id/statisticsFragment" />
+            app:destination="@id/statisticsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_welcomeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/configurationFragment"
@@ -27,7 +33,9 @@
         tools:layout="@layout/fragment_configuration" >
         <action
             android:id="@+id/action_configurationFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -36,7 +44,9 @@
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/welcomeFragment" />
         <argument
             android:name="configuration"
             app:argType="com.dnguy38.mathquiz.models.Configuration" />
@@ -48,7 +58,9 @@
         tools:layout="@layout/fragment_statistics" >
         <action
             android:id="@+id/action_statisticsFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -57,6 +69,8 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
 </navigation>

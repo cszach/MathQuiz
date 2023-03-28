@@ -16,7 +16,6 @@ class MainViewModel : ViewModel() {
 
     init {
         _configurationList.value = Configuration.values()
-        println("Initialized")
     }
 
     fun generateProblemList(numberOfProblems: Int, operation: Operation, operandLimit: Int, allowZero: Boolean, allowNegatives: Boolean) {
