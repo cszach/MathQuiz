@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">" Đố Vui Toán Học"</string>
+    <string name="new_game_text">Trò chơi mới</string>
+    <string name="settings_button_text">Cài đặt</string>
+    <string name="stats_button_text">Thống kê</string>
+    <string name="text_settings">Cài đặt</string>
+    <string name="text_5_minutes">5 phút</string>
+    <string name="text_2_minutes">2 phút</string>
+    <string name="text_1_minute">1 phút</string>
+    <string name="text_30_seconds">30 giây</string>
+    <string name="text_10_seconds">10 giây</string>
+    <string name="text_time_limit">Giới hạn thời gian</string>
+    <string name="text_statistics">Thống kê</string>
+    <string name="text_correct_answers">Số câu đúng</string>
+    <string name="text_time_spent">Tổng thời gian làm toán</string>
+    <string name="text_num_of_solved">Số lần thử</string>
+    <string name="game_text">Đố vui nào!</string>
+    <string name="text_allow_zero">Số 0</string>
+    <string name="text_allow_negatives">Số âm</string>
+    <string name="text_addition">Phép cộng</string>
+    <string name="text_subtraction">Phép trừ</string>
+    <string name="text_multiplication">Phép nhân</string>
+</resources>
