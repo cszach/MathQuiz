@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dnguy38.mathquiz.models.Game
 import com.dnguy38.mathquiz.models.Problem
+import com.dnguy38.mathquiz.models.Statistics
 import com.dnguy38.mathquiz.ui.main.MainViewModel
 
 private const val CORRECT_EMOJI_ALPHA_ANIM_DURATION = 300L
@@ -36,6 +37,7 @@ class GameFragment : Fragment() {
     private lateinit var newGameButton: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var timer: CountDownTimer
+    private lateinit var stats: Statistics
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +56,8 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        stats = (activity as MainActivity).stats
 
         val numProblems = resources.getInteger(R.integer.num_problems)
 
@@ -77,6 +81,7 @@ class GameFragment : Fragment() {
 
         timer = object : CountDownTimer(timeLimitMillis.toLong(), 1) {
             override fun onTick(timeRemainingMillis: Long) {
+                stats.timeSpentSeconds += 0.001
                 progressBar.progress =
                     (timeRemainingMillis / timeLimitMillis.toDouble() * progressBar.max).toInt()
             }
@@ -108,6 +113,9 @@ class GameFragment : Fragment() {
 
                     if (answerString.isNotEmpty() && answerString.toInt() == problem.result) {
                         game.addCorrectAnswer()
+                        stats.numCalculations++
+                        stats.numCorrectAnswers++
+
                         answerEditText.isEnabled = false
 
                         val fadeIn = ValueAnimator.ofFloat(0f, 1f)
@@ -133,6 +141,8 @@ class GameFragment : Fragment() {
                     val answerString = answerEditText.text.toString()
 
                     if (answerString.isNotEmpty() && answerString.toInt() != problem.result) {
+                        stats.numCalculations++
+
                         val shake = AnimatorSet()
 
                         shake.playSequentially(
