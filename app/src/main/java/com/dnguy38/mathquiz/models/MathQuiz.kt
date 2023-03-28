@@ -22,13 +22,35 @@ data class Problem(val operation: Operation, val operand1: Int, val operand2: In
 
 class MathQuiz {
     companion object {
-        fun newProblemSet(numberOfProblems: Int, operation: Operation, operandLimit: Int): List<Problem> {
+        fun newProblemSet(numberOfProblems: Int, operation: Operation, operandLimit: Int, allowZero: Boolean, allowNegatives: Boolean): List<Problem> {
             val problemSet = List<Problem>(numberOfProblems) {
-                val operand1 = Random.nextInt(0, operandLimit + 1)
-                val operand2 = when (operation) {
-                    // TODO: support negatives in settings
-                    Operation.Subtraction -> Random.nextInt(0, operand1 + 1)
-                    else -> Random.nextInt(0, operandLimit + 1)
+                val lowerBound = when (allowZero) {
+                    true -> 0
+                    false -> 1
+                }
+                val operandUntil = operandLimit + 1
+
+                var operand1 = when (operation) {
+                    Operation.Multiplication -> operandLimit
+                    else -> Random.nextInt(lowerBound, operandUntil)
+                }
+                var operand2 = when (operation) {
+                    Operation.Subtraction -> when (allowNegatives) {
+                        true -> Random.nextInt(lowerBound, operandUntil)
+                        false -> Random.nextInt(lowerBound, operand1 + 1)
+                    }
+                    Operation.Multiplication -> Random.nextInt(1, 10)
+                    else -> Random.nextInt(lowerBound, operandUntil)
+                }
+
+                if (operation == Operation.Multiplication) {
+                    if (allowNegatives && Random.nextBoolean()) {
+                        operand2 *= -1
+                    }
+
+                    if (Random.nextBoolean()) {
+                        operand1 = operand2.also { operand2 = operand1 }
+                    }
                 }
 
                 Problem(

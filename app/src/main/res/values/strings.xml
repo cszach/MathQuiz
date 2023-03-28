@@ -38,4 +38,6 @@
     <string name="game_text">Quiz time!</string>
     <string name="text_equal_sign">=</string>
     <string name="correct_emoji">✅</string>
+    <string name="text_allow_zero">Allow zero</string>
+    <string name="text_allow_negatives">Allow negatives</string>
 </resources>

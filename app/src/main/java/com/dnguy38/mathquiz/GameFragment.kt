@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dnguy38.mathquiz.models.Game
 import com.dnguy38.mathquiz.models.Problem
+import com.dnguy38.mathquiz.models.Settings
 import com.dnguy38.mathquiz.models.Statistics
 import com.dnguy38.mathquiz.ui.main.MainViewModel
 
@@ -37,6 +38,7 @@ class GameFragment : Fragment() {
     private lateinit var newGameButton: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var timer: CountDownTimer
+    private lateinit var settings: Settings
     private lateinit var stats: Statistics
 
     override fun onCreateView(
@@ -57,7 +59,10 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        stats = (activity as MainActivity).stats
+        val mainActivity = activity as MainActivity
+
+        settings = mainActivity.settings
+        stats = mainActivity.stats
 
         val numProblems = resources.getInteger(R.integer.num_problems)
 
@@ -67,7 +72,9 @@ class GameFragment : Fragment() {
         viewModel.generateProblemList(
             numProblems,
             args.configuration.operation,
-            args.configuration.operandLimit)
+            args.configuration.operandLimit,
+            settings.allowZero,
+            settings.allowNegatives)
         viewModel.problemList.observe(viewLifecycleOwner) {
             recycler.adapter = ProblemAdapter(it)
         }

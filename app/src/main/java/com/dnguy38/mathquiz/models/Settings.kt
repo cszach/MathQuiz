@@ -1,3 +1,3 @@
 package com.dnguy38.mathquiz.models
 
-data class Settings(var soundOn: Boolean, var timeLimitSeconds: Int)
+data class Settings(var allowZero: Boolean, var allowNegatives: Boolean, var timeLimitSeconds: Int)

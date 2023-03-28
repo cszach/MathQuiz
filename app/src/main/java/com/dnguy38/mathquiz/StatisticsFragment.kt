@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.dnguy38.mathquiz.models.Statistics
-import org.w3c.dom.Text
 
 class StatisticsFragment : Fragment() {
     private lateinit var numAttemptsTextView: TextView

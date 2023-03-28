@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
+    <Switch
+        android:id="@+id/allow_negatives_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
+        android:text="@string/text_allow_negatives"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/allow_zero_switch" />
+
     <TextView
         android:id="@+id/settings_fragment_emoji_textView"
         android:layout_width="wrap_content"
@@ -52,12 +64,12 @@
         app:layout_constraintGuide_begin="256dp" />
 
     <Switch
-        android:id="@+id/sound_switch"
+        android:id="@+id/allow_zero_switch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:minHeight="48dp"
-        android:text="@string/text_sound"
+        android:text="@string/text_allow_zero"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
@@ -109,6 +121,6 @@
         android:text="@string/text_time_limit"
         android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/sound_switch" />
+        app:layout_constraintTop_toBottomOf="@+id/allow_negatives_switch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

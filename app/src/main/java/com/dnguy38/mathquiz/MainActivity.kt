@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        settings = Settings(true, 60)
+        settings = Settings(allowZero = false, allowNegatives = false, 60)
         stats = Statistics(0, 0, 0.0)
     }
 }

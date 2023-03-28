@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
         println("Initialized")
     }
 
-    fun generateProblemList(numberOfProblems: Int, operation: Operation, operandLimit: Int) {
-        _problemList.value = MathQuiz.newProblemSet(numberOfProblems, operation, operandLimit)
+    fun generateProblemList(numberOfProblems: Int, operation: Operation, operandLimit: Int, allowZero: Boolean, allowNegatives: Boolean) {
+        _problemList.value = MathQuiz.newProblemSet(numberOfProblems, operation, operandLimit, allowZero, allowNegatives)
     }
 }

@@ -12,7 +12,8 @@ import android.widget.Switch
 private const val TAG = "com.dnguy38.mathquiz.SettingsFragment"
 
 class SettingsFragment : Fragment() {
-    private lateinit var soundSwitch: Switch
+    private lateinit var allowZeroSwitch: Switch
+    private lateinit var allowNegativesSwitch: Switch
     private lateinit var timeLimitRadioGroup: RadioGroup
 
     override fun onCreateView(
@@ -28,9 +29,13 @@ class SettingsFragment : Fragment() {
         val timeLimit4 = resources.getInteger(R.integer.time_limit_4)
         val timeLimit5 = resources.getInteger(R.integer.time_limit_5)
 
-        soundSwitch = view.findViewById(R.id.sound_switch)
-        soundSwitch.isChecked = settings.soundOn
-        soundSwitch.setOnCheckedChangeListener { _, isChecked -> settings.soundOn = isChecked }
+        allowZeroSwitch = view.findViewById(R.id.allow_zero_switch)
+        allowZeroSwitch.isChecked = settings.allowZero
+        allowZeroSwitch.setOnCheckedChangeListener { _, isChecked -> settings.allowZero = isChecked }
+
+        allowNegativesSwitch = view.findViewById(R.id.allow_negatives_switch)
+        allowNegativesSwitch.isChecked = settings.allowNegatives
+        allowNegativesSwitch.setOnCheckedChangeListener { _, isChecked -> settings.allowNegatives = isChecked }
 
         timeLimitRadioGroup = view.findViewById(R.id.time_limit_radioGroup)
         timeLimitRadioGroup.check(when (settings.timeLimitSeconds) {
