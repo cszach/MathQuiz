@@ -1,43 +1,30 @@
 <resources>
     <string name="app_name">Math Quiz</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="app_emoji">🔢</string>
+    <string name="app_emoji" translatable="false">🔢</string>
     <string name="new_game_text">New game</string>
+    <string name="text_addition">Addition</string>
+    <string name="text_subtraction">Subtraction</string>
+    <string name="text_multiplication">Multiplication</string>
+    <string name="configuration_name_text" translatable="false">%s %d</string>
     <string name="settings_button_text">Settings</string>
     <string name="stats_button_text">Statistics</string>
     <string name="text_settings">Settings</string>
-    <string name="text_sound">Sound</string>
     <string name="text_5_minutes">5 minutes</string>
     <string name="text_2_minutes">2 minutes</string>
     <string name="text_1_minute">1 minute</string>
     <string name="text_30_seconds">30 seconds</string>
     <string name="text_10_seconds">10 seconds</string>
     <string name="text_time_limit">Time limit</string>
-    <string name="settings_emoji">⚙️</string>
-    <string name="stats_fragment_emoji_textView">📊</string>
+    <string name="settings_emoji" translatable="false">⚙️</string>
+    <string name="stats_fragment_emoji_textView" translatable="false">📊</string>
     <string name="text_statistics">Statistics</string>
     <string name="text_correct_answers">Correct answers</string>
     <string name="text_time_spent">Time spent doing math</string>
     <string name="text_num_of_solved">Calculations attempted</string>
-    <string name="game_emoji">📚</string>
+    <string name="game_emoji" translatable="false">📚</string>
     <string name="game_text">Quiz time!</string>
-    <string name="text_equal_sign">=</string>
-    <string name="correct_emoji">✅</string>
+    <string name="text_equal_sign" translatable="false">=</string>
+    <string name="correct_emoji" translatable="false">✅</string>
     <string name="text_allow_zero">Allow zero</string>
     <string name="text_allow_negatives">Allow negatives</string>
 </resources>

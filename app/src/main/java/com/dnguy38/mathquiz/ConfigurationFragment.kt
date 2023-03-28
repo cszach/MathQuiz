@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dnguy38.mathquiz.models.Configuration
+import com.dnguy38.mathquiz.models.Operation
 import com.dnguy38.mathquiz.ui.main.MainViewModel
 
 class ConfigurationFragment : Fragment() {
@@ -54,7 +55,12 @@ class ConfigurationFragment : Fragment() {
 
         fun bind(configuration: Configuration) {
             this.configuration = configuration
-            configurationNameTextView.text = configuration.name
+            val operationText = when (configuration.operation) {
+                Operation.Addition -> resources.getString(R.string.text_addition)
+                Operation.Subtraction -> resources.getString(R.string.text_subtraction)
+                Operation.Multiplication -> resources.getString(R.string.text_multiplication)
+            }
+            configurationNameTextView.text = resources.getString(R.string.configuration_name_text, operationText, configuration.operandLimit)
         }
     }
 
